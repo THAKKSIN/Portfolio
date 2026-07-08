@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thakksin A S | Embedded & AI Engineer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #0a0b10;
+            --bg-card: rgba(18, 20, 29, 0.75);
+            --bg-card-hover: rgba(24, 27, 38, 0.85);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(56, 189, 248, 0.4);
+            
+            /* Reference Bar Colors */
+            --nav-bg: #161922;
+            --nav-border: #222735;
+            --cta-violet: #8b5cf6;
+            --cta-violet-hover: #7c3aed;
+            --cta-glow: rgba(139, 92, 246, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* LIVE BACKGROUND CANVAS */
+        #live-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, #101420 0%, #0a0b10 100%);
+        }
+
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* =========================================
+           REFERENCE-STYLE SLATE NAVIGATION BAR
+           ========================================= */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--nav-border);
+            z-index: 1000;
+            padding: 0.85rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Left Logo Area */
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #38bdf8 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
+        }
+
+        .logo-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .logo-text {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+        }
+
+        /* Center / Right Nav Links */
+        .nav-content-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            color: #8e96aa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #ffffff;
+        }
+
+        /* Active link mirroring the white bold "Developers" tab in reference */
+        .nav-links li a.active {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Right Action Area (Icon + Violet Button) */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            padding-left: 1.5rem;
+        }
+
+        .theme-toggle {
+            color: #8e96aa;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.4rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .btn-nav-cta {
+            background: var(--cta-violet);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.55rem 1.3rem;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px var(--cta-glow);
+            display: inline-block;
+        }
+
+        .btn-nav-cta:hover {
+            background: var(--cta-violet-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Layout & Sections */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 6rem;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            width: fit-content;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h3 {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.6rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: var(--bg-main);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.8rem;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .skill-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+
+        .skill-card h3 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
+        }
+
+        .tag.highlight {
+            color: var(--accent);
+            border-color: rgba(56, 189, 248, 0.3);
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: 0 10px 25px var(--accent-glow);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-patent {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .badge-award {
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-tags span {
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.05);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* Timeline / Experience */
+        .timeline {
+            border-left: 1px solid var(--border);
+            padding-left: 2rem;
+            margin-left: 0.5rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -2.35rem;
+            top: 0.3rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Achievements List */
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .achievement-row {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .achievement-row:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .achievement-row h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .achievement-row p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .achievement-tag {
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: rgba(56, 189, 248, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            section { padding: 3.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LIVE ANIMATED BACKGROUND CANVAS -->
+    <canvas id="live-bg"></canvas>
+
+    <!-- NEW REFERENCE-STYLE TOP BAR -->
+    <nav>
+        <div class="nav-container">
+            <!-- Gradient Squircle Icon + Logo Text -->
+            <a href="#home" class="logo-group">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                    </svg>
+                </div>
+                <span class="logo-text code-font">Thakksin A S</span>
+            </a>
+
+            <!-- Muted-to-White Nav Links & CTA -->
+            <div class="nav-content-right">
+                <ul class="nav-links code-font">
+                    <li><a href="#home">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects" class="active">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#achievements">Hackathons</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <!-- Moon/Theme Icon -->
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <!-- Violet CTA Button -->
+                    <a href="mailto:thakksin2006@gmail.com" class="btn-nav-cta">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <section id="home" class="hero">
+            <div class="status-pill code-font">
+                <span>ECE Student @ PSG iTech • CGPA: 8.31</span>
+            </div>
+            <h1>Thakksin A S</h1>
+            <h3 class="code-font">&gt; Embedded Systems &amp; AI Engineer</h3>
+            <p>
+                Passionate about designing innovative hardware-software solutions, autonomous IoT architectures, and real-time signal processing systems. Specializing in bridging microcontroller hardware with low-power edge machine learning.
+            </p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">Explore Projects</a>
+                <a href="mailto:thakksin2006@gmail.com" class="btn btn-outline code-font">thakksin2006@gmail.com</a>
+                <a href="tel:9025621551" class="btn btn-outline code-font">(+91) 9025621551</a>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <h2>Technical Stack</h2>
+                <p>Core competencies in electronic design, algorithmic logic, and system simulation.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3 class="code-font">// Languages</h3>
+                    <div class="tags code-font">
+                        <span class="tag highlight">C / C++</span>
+                        <span class="tag highlight">Python</span>
+                        <span class="tag">Verilog</span>
+                        <span class="tag">HTML / CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3 class="code-font">// Embedded &amp; Hardware</h3>
+                    <div class="tags code-font">
+                        <span class="tag highlight">STM32</span>
+                        <span class="tag highlight">ESP32</span>
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">Sensor Interfacing</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3 class="code-font">// EDA &amp; Tools</h3>
+                    <div class="tags code-font">
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">PSPICE</span>
+                        <span class="tag">Xilinx Vivado</span>
+                        <span class="tag">Cadence</span>
+                        <span class="tag">KiCad PCB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Hardware and AI systems designed for healthcare, automotive, and agriculture.</p>
+            </div>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div>
+                        <div class="project-header">
+                            <h3>LVAD Precision Flowmeter</h3>
+                            <span class="badge badge-patent">Patent Applied</span>
+                        </div>
+                        <p>
+                            Designed a precision flowmeter subsystem for a Left Ventricular Assist Device (LVAD) using an STM32 microcontroller. Enhanced patient safety through digital signal processing, calibration, and anomaly detection.
+                        </p>
+                    </div>
+                    <div class="project-tags code-font">
+                        <span>STM32</span>
+                        <span>DSP</span>
+                        <span>Biomedical</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-header">
+                            <h3>GROUNDED: Precision Agri</h3>
+                            <span class="badge badge-award">AI For All Finalist</span>
+                        </div>
+                        <p>
+                            Engineered an autonomous agricultural system for real-time crop recommendation using an ESP32 and TCS3200 color sensor. Integrated an on-device machine learning model optimized for low-power offline edge deployment.
+                        </p>
+                    </div>
+                    <div class="project-tags code-font">
+                        <span>ESP32</span>
+                        <span>Edge ML</span>
+                        <span>IoT Architecture</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-header">
+                            <h3>EV Thermal Management</h3>
+                            <span class="badge badge-award">IDEAthon Finalist</span>
+                        </div>
+                        <p>
+                            Built a hardware-software prototype for predictive EV thermal management using ESP32 and Gaussian Process Regression (GPR). Enabled real-time battery forecasting and automated proactive liquid cooling loops.
+                        </p>
+                    </div>
+                    <div class="project-tags code-font">
+                        <span>ESP32</span>
+                        <span>GPR Model</span>
+                        <span>Automotive</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div>
+                        <div class="project-header">
+                            <h3>Hybrid Cardiac Monitor</h3>
+                            <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-main); border: 1px solid var(--border);">Research</span>
+                        </div>
+                        <p>
+                            Implemented a heartbeat monitoring system using an ESP32 with a MEMS microphone and op-amp signal conditioning. Extracted acoustic features (MFCC) and applied an SVM classifier for normal vs. abnormal diagnostics.
+                        </p>
+                    </div>
+                    <div class="project-tags code-font">
+                        <span>MEMS Mic</span>
+                        <span>Op-Amp</span>
+                        <span>SVM Classifier</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Experience & Research -->
+        <section id="experience">
+            <div class="section-header">
+                <h2>Experience &amp; Research</h2>
+                <p>Practical laboratory hardware design and professional industry exposure.</p>
+            </div>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-date code-font">// ONGOING RESEARCH PROJECT</div>
+                    <h3>Continuous Glucose Monitoring (CGM) System</h3>
+                    <p>
+                        Developing a system for real-time tracking of blood glucose levels using invasive electrochemical sensing and signal processing techniques. Designed low-noise analog circuitry for precise data acquisition and integrated IoT connectivity for smarter health monitoring.
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date code-font">// INDUSTRIAL INTERNSHIP (1 MONTH)</div>
+                    <h3>Entudio Pvt Ltd — PCB &amp; Drone Engineering Intern</h3>
+                    <p>
+                        Learned PCB schematic capture and board layout design using KiCad through simulation. Gained intensive hands-on practical experience in hardware assembling, wiring, and testing an operational drone system.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Achievements -->
+        <section id="achievements">
+            <div class="section-header">
+                <h2>Hackathons &amp; Recognition</h2>
+                <p>Competitive innovation and technical workshops.</p>
+            </div>
+            <div class="achievements-list">
+                
+                <div class="achievement-row">
+                    <div>
+                        <h4>Caterpillar Tech Challenge Hackathon</h4>
+                        <p>Engineered real-time Monocular Depth Estimation using AdaBins &amp; TensorFlow Lite on Raspberry Pi for collision mitigation.</p>
+                    </div>
+                    <span class="achievement-tag code-font">Pre-Finalist</span>
+                </div>
+
+                <div class="achievement-row">
+                    <div>
+                        <h4>AI For ALL — NIT Trichy</h4>
+                        <p>Recognized for developing "GROUNDED", deploying localized ML crop recommendation models on edge hardware.</p>
+                    </div>
+                    <span class="achievement-tag code-font">Finalist</span>
+                </div>
+
+                <div class="achievement-row">
+                    <div>
+                        <h4>Tech IDEAthon</h4>
+                        <p>Led development of predictive EV thermal management system utilizing Gaussian Process Regression.</p>
+                    </div>
+                    <span class="achievement-tag code-font">Finalist</span>
+                </div>
+
+                <div class="achievement-row">
+                    <div>
+                        <h4>Industrial Automation Mavericks Workshop — Schneider Electric</h4>
+                        <p>Completed intensive training based on Industry Automation organized at PSG College of Technology, Coimbatore.</p>
+                    </div>
+                    <span class="achievement-tag code-font">Participant</span>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="code-font">&gt; Designed &amp; Engineered by Thakksin A S _</p>
+            <p style="font-size: 0.75rem;">Erode, Tamil Nadu • thakksin2006@gmail.com • (+91) 9025621551</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE PARTICLE NETWORK SCRIPT -->
+    <script>
+        const canvas = document.getElementById('live-bg');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+        const particleCount = window.innerWidth < 768 ? 35 : 65;
+        const maxDistance = 140;
+
+        let mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 1.8 + 1;
+            }
+
+            update() {
+                if (this.x < 0 || this.x > width) this.vx = -this.vx;
+                if (this.y < 0 || this.y > height) this.vy = -this.vy;
+
+                this.x += this.vx;
+                this.y += this.vy;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(56, 189, 248, 0.6)';
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                // Connect particles to each other
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(56, 189, 248, ${0.25 * (1 - dist / maxDistance)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+
+                // Connect particles to mouse
+                if (mouse.x && mouse.y) {
+                    const dx = particles[i].x - mouse.x;
+                    const dy = particles[i].y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < mouse.radius) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = `rgba(56, 189, 248, ${0.4 * (1 - dist / mouse.radius)})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        resizeCanvas();
+        initParticles();
+        animate();
+    </script>
+</body>
+</html>
