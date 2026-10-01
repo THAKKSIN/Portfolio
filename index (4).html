@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Thakksin A S – About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.className='js'</script>
+<style>
+:root{--bg:#0a0b10;--ink:#f3f4f6;--mut:#9ca3af;--ac:#38bdf8;--vi:#8b5cf6;--bd:rgba(255,255,255,.1);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0b10}}
+:root[data-theme="dark"]{--bg:#0a0b10}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(ellipse at 75% 40%,#1a1440 0,var(--bg) 60%) fixed;color:var(--ink);font:17px/1.7 Inter,system-ui,sans-serif;overflow-x:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.code{font-family:'Fira Code',ui-monospace,monospace}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:18px 5vw}
+nav b{font-size:1.05rem;letter-spacing:.02em}
+.nl{display:flex;gap:22px}.nl a{color:var(--mut);text-decoration:none;font-size:.85rem}.nl a:hover,.nl a:focus-visible{color:#fff;outline:none}
+@media(max-width:800px){.nl{display:none}}
+.cta,.btn{display:inline-block;text-decoration:none;border-radius:10px;padding:11px 22px;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+.cta,.btn.p{background:var(--vi);color:#fff;box-shadow:0 0 24px rgba(139,92,246,.45)}
+.btn.o{border:1px solid var(--bd);color:var(--ink);background:rgba(255,255,255,.04);backdrop-filter:blur(8px);font-size:.85rem}
+.cta:hover,.btn:hover,.cta:focus-visible,.btn:focus-visible{transform:translateY(-3px);outline:none}
+.btn.o:hover,.btn.o:focus-visible{border-color:var(--ac);box-shadow:0 0 20px rgba(56,189,248,.35)}
+main{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;padding:110px 5vw 60px;perspective:1100px}
+.card{max-width:640px;padding:38px 40px;border-radius:22px;background:linear-gradient(145deg,rgba(24,27,45,.72),rgba(12,13,22,.55));border:1px solid var(--bd);backdrop-filter:blur(16px);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(56,189,248,.08) inset,0 0 60px rgba(139,92,246,.15);transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .15s ease-out;transform-style:preserve-3d}
+.pill{display:inline-block;padding:6px 15px;border:1px solid rgba(56,189,248,.4);border-radius:99px;background:rgba(56,189,248,.08);color:var(--ac);font-size:.78rem;transform:translateZ(30px)}
+h1{margin:18px 0 6px;font-size:clamp(2.8rem,7vw,4.9rem);line-height:1;font-weight:800;letter-spacing:-.035em;background:linear-gradient(100deg,#fff 20%,var(--ac) 60%,var(--vi));-webkit-background-clip:text;background-clip:text;color:transparent;transform:translateZ(60px)}
+h3{margin:0 0 16px;font-size:1.1rem;font-weight:500;color:var(--ac);transform:translateZ(40px)}
+p{color:var(--mut);margin:0 0 26px;transform:translateZ(20px)}
+.bt{display:flex;flex-wrap:wrap;gap:12px;transform:translateZ(45px)}
+.wrap{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:0 5vw;perspective:1200px}
+.wrap section{padding:90px 0 20px}
+h2{font-size:clamp(1.9rem,4vw,2.7rem);margin:0 0 6px;font-weight:800;letter-spacing:-.02em;background:linear-gradient(100deg,#fff,var(--ac));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:0 0 32px;transform:none}
+.grid{display:grid;gap:22px}.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.k{padding:26px 28px;border-radius:18px;background:linear-gradient(145deg,rgba(26,29,48,.78),rgba(12,13,22,.6));border:1px solid var(--bd);backdrop-filter:blur(14px);box-shadow:0 20px 50px rgba(0,0,0,.45);transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .15s ease-out,border-color .2s,box-shadow .2s;transform-style:preserve-3d}
+.k:hover{border-color:rgba(56,189,248,.5);box-shadow:0 26px 60px rgba(0,0,0,.55),0 0 40px rgba(56,189,248,.18)}
+.k h3{margin:0;font-size:1.15rem;color:#fff;transform:translateZ(30px)}.k h4{margin:0 0 14px;color:var(--ac);font-weight:500;transform:translateZ(25px)}
+.k p{margin:10px 0 16px;font-size:.95rem;transform:translateZ(14px)}
+.hd{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;transform:translateZ(30px)}
+.bg{white-space:nowrap;font:500 .72rem 'Fira Code',monospace;padding:4px 10px;border-radius:99px;background:rgba(56,189,248,.12);color:var(--ac);border:1px solid rgba(56,189,248,.35);height:fit-content;transform:translateZ(30px)}
+.bg.pt{background:rgba(139,92,246,.18);color:#c4b0ff;border-color:rgba(139,92,246,.5)}.bg.rs{background:rgba(255,255,255,.05);color:var(--ink);border-color:var(--bd)}
+.tg{display:flex;flex-wrap:wrap;gap:8px;transform:translateZ(22px)}.tg i{font-style:normal;font-size:.8rem;padding:4px 11px;border-radius:7px;border:1px solid var(--bd);background:rgba(255,255,255,.04);color:var(--mut)}
+.tg i.h{color:var(--ac);border-color:rgba(56,189,248,.4);background:rgba(56,189,248,.08)}.tg.sm i{font-size:.74rem}
+.tl{display:grid;gap:20px;position:relative;padding-left:26px}.tl:before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--ac),var(--vi));border-radius:2px;box-shadow:0 0 12px var(--ac)}
+.tl .k:before{content:"";position:absolute;left:-26px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--ac);box-shadow:0 0 14px var(--ac)}.tl .k{position:relative}
+.dt{font-size:.74rem;color:var(--vi);color:#b79bff;display:block;margin-bottom:6px}
+.row{display:flex;justify-content:space-between;gap:18px;align-items:center}.row p{margin:6px 0 0}
+footer{position:relative;z-index:2;text-align:center;padding:80px 5vw 50px;color:var(--ac)}footer p{margin:0 0 6px;transform:none}footer small{color:var(--mut)}
+@media(max-width:600px){.row{flex-direction:column;align-items:flex-start}}
+.aura{position:fixed;inset:-20%;z-index:0;pointer-events:none;background:radial-gradient(40% 35% at 25% 30%,rgba(56,189,248,.16),transparent 70%),radial-gradient(45% 40% at 78% 65%,rgba(139,92,246,.2),transparent 70%),radial-gradient(30% 25% at 55% 100%,rgba(255,122,184,.12),transparent 70%);animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(4%,-3%,0) scale(1.12)}}
+@keyframes up{from{opacity:0;translate:0 26px;filter:blur(8px)}to{opacity:1;translate:0 0;filter:none}}
+@keyframes pop{from{opacity:0;translate:0 40px;scale:.96}to{opacity:1;translate:0 0;scale:1}}
+@keyframes shine{to{background-position:200% 0}}
+@keyframes down{from{opacity:0;translate:0 -20px}to{opacity:1;translate:0 0}}
+nav{animation:down .8s .2s both}
+#card{animation:pop 1s .35s cubic-bezier(.2,.7,.2,1) both}
+.pill{animation:up .8s .7s both}h1{animation:up .9s .85s both,shine 7s 2s linear infinite;background-size:200% 100%}
+h3.code{animation:up .8s 1s both}#card>p{animation:up .8s 1.15s both}.bt{animation:up .8s 1.3s both}
+.js .rv{opacity:0;translate:0 36px;filter:blur(6px)}
+.js .rv.in{opacity:1;translate:0 0;filter:none}
+.js h2.rv,.js .sub.rv{transition:opacity .8s cubic-bezier(.2,.7,.2,1),translate .8s cubic-bezier(.2,.7,.2,1),filter .8s}
+.js .k.rv{transition:transform .15s ease-out,border-color .2s,box-shadow .2s,opacity .8s var(--d,0s),translate .9s cubic-bezier(.2,.7,.2,1) var(--d,0s),filter .8s var(--d,0s)}
+.js .tl:before{transform-origin:top;transform:scaleY(0);transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}.js .tl.in:before{transform:scaleY(1)}
+.tg i{transition:transform .2s,border-color .2s,color .2s}.k:hover .tg i{transform:translateY(-2px)}.tg i.h{animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 12px rgba(56,189,248,.45)}}
+.btn:active,.cta:active{transform:scale(.97)}
+@media(prefers-reduced-motion:reduce){*,.aura{animation:none!important;transition:none!important}.js .rv{opacity:1;translate:none;filter:none}.js .tl:before{transform:none}}
+@media(max-width:800px){main{align-items:flex-end}.card{padding:26px 22px;background:linear-gradient(145deg,rgba(24,27,45,.86),rgba(12,13,22,.78))}}
+@media(prefers-reduced-motion:reduce){.card{transition:none}}
+
+html{scroll-behavior:smooth}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.09;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.spot{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(420px circle at var(--sx,70%) var(--sy,40%),rgba(56,189,248,.11),transparent 65%);transition:background-position .3s}
+.prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:5;transform-origin:left;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--ac),var(--vi),#ff7ab8);box-shadow:0 0 12px var(--ac)}
+nav{transition:background .4s,backdrop-filter .4s,padding .4s,box-shadow .4s}
+nav.s{background:rgba(10,11,16,.62);backdrop-filter:blur(14px);padding-top:11px;padding-bottom:11px;box-shadow:0 1px 0 var(--bd)}
+.nl a{position:relative;padding:4px 0;transition:color .25s}
+.nl a:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--ac),var(--vi));transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.nl a:hover:after,.nl a.on:after{transform:scaleX(1)}.nl a.on{color:#fff}
+h2{position:relative;padding-bottom:12px}
+h2:after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;border-radius:3px;background:linear-gradient(90deg,var(--ac),var(--vi));box-shadow:0 0 14px var(--ac);transition:width 1s .35s cubic-bezier(.2,.7,.2,1)}
+h2.in:after{width:72px}
+.k:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.08) 50%,transparent 65%) 160% 0/250% 100% no-repeat;transition:background-position .9s ease}
+.k:hover:after{background-position:-60% 0}
+.k{position:relative}
+.js .k.rv .tg i{opacity:0;translate:0 10px;scale:.92}
+.js .k.rv.in .tg i{opacity:1;translate:0 0;scale:1}
+.js .k.rv .tg i{transition:opacity .5s calc(var(--d,0s) + .35s + var(--n,0)*.07s),translate .5s calc(var(--d,0s) + .35s + var(--n,0)*.07s) cubic-bezier(.2,.7,.2,1),scale .5s calc(var(--d,0s) + .35s + var(--n,0)*.07s),transform .2s,border-color .2s,color .2s}
+.pill:before{content:"";display:inline-block;width:7px;height:7px;margin-right:9px;border-radius:50%;background:#66ffb0;box-shadow:0 0 0 0 rgba(102,255,176,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px rgba(102,255,176,0)}100%{box-shadow:0 0 0 0 rgba(102,255,176,0)}}
+.btn,.cta{position:relative;overflow:hidden}
+.btn.p:after,.cta:after{content:"";position:absolute;top:0;left:-70%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn.p:hover:after,.cta:hover:after{left:130%}
+footer{transition:opacity .8s}
+@media(prefers-reduced-motion:reduce){.js .k.rv .tg i{opacity:1;translate:none;scale:1}h2:after{width:72px}html{scroll-behavior:auto}}
+</style></head><body>
+<div class="aura" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div><div class="spot" aria-hidden="true"></div><div class="prog" aria-hidden="true"></div>
+<canvas id="c" aria-hidden="true"></canvas>
+<nav><b class="code">Thakksin A S</b><div class="nl code"><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#achievements">Hackathons</a></div><a class="cta" href="mailto:thakksin2006@gmail.com">Contact Me</a></nav>
+<main><section class="card" id="card">
+<span class="pill code">ECE Student @ PSG iTech • CGPA: 8.31</span>
+<h1>Thakksin A S</h1>
+<h3 class="code">&gt; Embedded Systems &amp; AI Engineer</h3>
+<p>Passionate about designing innovative hardware-software solutions, autonomous IoT architectures, and real-time signal processing systems. Specializing in bridging microcontroller hardware with low-power edge machine learning.</p>
+<div class="bt"><a class="btn p" href="#projects">Explore Projects</a><a class="btn o code" href="mailto:thakksin2006@gmail.com">thakksin2006@gmail.com</a><a class="btn o code" href="tel:9025621551">(+91) 9025621551</a></div>
+</section></main>
+<div class="wrap">
+<section id="skills"><h2>Technical Stack</h2><p class="sub">Core competencies in electronic design, algorithmic logic, and system simulation.</p>
+<div class="grid g3">
+<div class="t k"><h4 class="code">// Languages</h4><div class="tg code"><i class="h">C / C++</i><i class="h">Python</i><i>Verilog</i><i>HTML / CSS</i></div></div>
+<div class="t k"><h4 class="code">// Embedded &amp; Hardware</h4><div class="tg code"><i class="h">STM32</i><i class="h">ESP32</i><i>Arduino</i><i>Raspberry Pi</i><i>Sensor Interfacing</i></div></div>
+<div class="t k"><h4 class="code">// EDA &amp; Tools</h4><div class="tg code"><i>MATLAB</i><i>PSPICE</i><i>Xilinx Vivado</i><i>Cadence</i><i>KiCad PCB</i></div></div></div></section>
+
+<section id="projects"><h2>Featured Projects</h2><p class="sub">Hardware and AI systems designed for healthcare, automotive, and agriculture.</p>
+<div class="grid g2">
+<div class="t k"><div class="hd"><h3>LVAD Precision Flowmeter</h3><span class="bg pt">Patent Applied</span></div><p>Designed a precision flowmeter subsystem for a Left Ventricular Assist Device (LVAD) using an STM32 microcontroller. Enhanced patient safety through digital signal processing, calibration, and anomaly detection.</p><div class="tg code sm"><i>STM32</i><i>DSP</i><i>Biomedical</i></div></div>
+<div class="t k"><div class="hd"><h3>GROUNDED: Precision Agri</h3><span class="bg">AI For All Finalist</span></div><p>Engineered an autonomous agricultural system for real-time crop recommendation using an ESP32 and TCS3200 color sensor. Integrated an on-device machine learning model optimized for low-power offline edge deployment.</p><div class="tg code sm"><i>ESP32</i><i>Edge ML</i><i>IoT Architecture</i></div></div>
+<div class="t k"><div class="hd"><h3>EV Thermal Management</h3><span class="bg">IDEAthon Finalist</span></div><p>Built a hardware-software prototype for predictive EV thermal management using ESP32 and Gaussian Process Regression (GPR). Enabled real-time battery forecasting and automated proactive liquid cooling loops.</p><div class="tg code sm"><i>ESP32</i><i>GPR Model</i><i>Automotive</i></div></div>
+<div class="t k"><div class="hd"><h3>Hybrid Cardiac Monitor</h3><span class="bg rs">Research</span></div><p>Implemented a heartbeat monitoring system using an ESP32 with a MEMS microphone and op-amp signal conditioning. Extracted acoustic features (MFCC) and applied an SVM classifier for normal vs. abnormal diagnostics.</p><div class="tg code sm"><i>MEMS Mic</i><i>Op-Amp</i><i>SVM Classifier</i></div></div></div></section>
+
+<section id="experience"><h2>Experience &amp; Research</h2><p class="sub">Practical laboratory hardware design and professional industry exposure.</p>
+<div class="tl">
+<div class="t k"><span class="code dt">// ONGOING RESEARCH PROJECT</span><h3>Continuous Glucose Monitoring (CGM) System</h3><p>Developing a system for real-time tracking of blood glucose levels using invasive electrochemical sensing and signal processing techniques. Designed low-noise analog circuitry for precise data acquisition and integrated IoT connectivity for smarter health monitoring.</p></div>
+<div class="t k"><span class="code dt">// INDUSTRIAL INTERNSHIP (1 MONTH)</span><h3>Entudio Pvt Ltd — PCB &amp; Drone Engineering Intern</h3><p>Learned PCB schematic capture and board layout design using KiCad through simulation. Gained intensive hands-on practical experience in hardware assembling, wiring, and testing an operational drone system.</p></div></div></section>
+
+<section id="achievements"><h2>Hackathons &amp; Recognition</h2><p class="sub">Competitive innovation and technical workshops.</p>
+<div class="tl">
+<div class="t k row"><div><h3>Caterpillar Tech Challenge Hackathon</h3><p>Engineered real-time Monocular Depth Estimation using AdaBins &amp; TensorFlow Lite on Raspberry Pi for collision mitigation.</p></div><span class="bg">Pre-Finalist</span></div>
+<div class="t k row"><div><h3>AI For ALL — NIT Trichy</h3><p>Recognized for developing "GROUNDED", deploying localized ML crop recommendation models on edge hardware.</p></div><span class="bg">Finalist</span></div>
+<div class="t k row"><div><h3>Tech IDEAthon</h3><p>Led development of predictive EV thermal management system utilizing Gaussian Process Regression.</p></div><span class="bg">Finalist</span></div>
+<div class="t k row"><div><h3>Industrial Automation Mavericks Workshop — Schneider Electric</h3><p>Completed intensive training based on Industry Automation organized at PSG College of Technology, Coimbatore.</p></div><span class="bg rs">Participant</span></div></div></section>
+</div>
+<footer class="code"><p>&gt; Designed &amp; Engineered by Thakksin A S _</p><small>Erode, Tamil Nadu • thakksin2006@gmail.com • (+91) 9025621551</small></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var cv=document.getElementById('c'),R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.2;
+var rm0=matchMedia('(prefers-reduced-motion:reduce)').matches,S=new THREE.Scene(),cam=new THREE.PerspectiveCamera(42,1,.1,100);cam.position.set(0,0,rm0?9:16);
+// studio environment for realistic metal reflections
+var E=new THREE.Scene();E.background=new THREE.Color(0x05060c);
+[[0x38bdf8,[6,3,0],[1,5,5]],[0x8b5cf6,[-6,-2,2],[1,6,4]],[0xffffff,[0,7,-3],[8,.5,3]],[0xff7ab8,[0,-6,4],[6,.5,2]]].forEach(function(l){
+ var m=new THREE.Mesh(new THREE.BoxGeometry(l[2][0],l[2][1],l[2][2]),new THREE.MeshBasicMaterial({color:l[0]}));m.position.set(l[1][0],l[1][1],l[1][2]);E.add(m)});
+S.environment=new THREE.PMREMGenerator(R).fromScene(E).texture;
+S.add(new THREE.PointLight(0x38bdf8,1.4,20).translateX(4).translateY(3).translateZ(5));
+S.add(new THREE.PointLight(0x8b5cf6,1.6,20).translateX(-4).translateY(-3).translateZ(4));
+var G=new THREE.Group();S.add(G);
+// realistic quadcopter drone
+function M(c,r,m){return new THREE.MeshStandardMaterial({color:c,roughness:r,metalness:m,envMapIntensity:1.2})}
+var carbon=M(0x1a1e20,.3,.7),sil=M(0xcfd3d6,.2,1),acc=M(0x38bdf8,.25,.9),glass=M(0x05060c,.05,.95);
+function add(p,geo,m,x,y,z){var o=new THREE.Mesh(geo,m);o.position.set(x,y,z);p.add(o);return o}
+var D=new THREE.Group();D.rotation.x=.28;G.add(D);
+add(D,new THREE.SphereGeometry(1,40,24),carbon,0,0,0).scale.set(1.5,.42,1.1);
+add(D,new THREE.BoxGeometry(1.2,.12,.5),M(0x252c30,.4,.5),0,.38,0);
+add(D,new THREE.BoxGeometry(.5,.05,.2),acc,-.3,.46,0);
+add(D,new THREE.SphereGeometry(.28,24,16),M(0x202426,.3,.7),1.35,-.18,0);
+add(D,new THREE.CylinderGeometry(.14,.14,.12,24),glass,1.55,-.18,0).rotation.z=Math.PI/2;
+var props=[];
+[45,135,225,315].forEach(function(d,i){var r=d*Math.PI/180,L=2.3,x=Math.cos(r)*L,z=Math.sin(r)*L;
+ var arm=add(D,new THREE.CylinderGeometry(.09,.09,L,14),carbon,x/2,.05,z/2);arm.lookAt(x,.05,z);arm.rotateX(Math.PI/2);
+ add(D,new THREE.CylinderGeometry(.22,.22,.28,24),sil,x,.2,z);
+ var pr=new THREE.Group();pr.position.set(x,.42,z);D.add(pr);
+ add(pr,new THREE.BoxGeometry(2.1,.025,.17),M(0x1d2224,.4,.3),0,0,0).rotation.y=.2;
+ add(pr,new THREE.CylinderGeometry(.08,.08,.08,16),acc,0,.04,0);
+ var disc=new THREE.Mesh(new THREE.CircleGeometry(1.05,40),new THREE.MeshBasicMaterial({color:0xcfe9ff,transparent:true,opacity:.08,side:2}));disc.rotation.x=-Math.PI/2;pr.add(disc);
+ pr.userData.s=i%2?1:-1;props.push(pr);
+ add(D,new THREE.SphereGeometry(.06,10,10),new THREE.MeshBasicMaterial({color:i<2?0x66ffb0:0xff5a4a}),x*.7,-.05,z*.7)});
+[[-.6,-.5],[-.6,.5],[.6,-.5],[.6,.5]].forEach(function(p){add(D,new THREE.CylinderGeometry(.04,.04,.7,8),sil,p[0],-.5,p[1]).rotation.z=.15*Math.sign(p[0])});
+add(D,new THREE.CylinderGeometry(.04,.04,1.6,8),sil,0,-.82,-.5).rotation.x=Math.PI/2;add(D,new THREE.CylinderGeometry(.04,.04,1.6,8),sil,0,-.82,.5).rotation.x=Math.PI/2;
+var ll=new THREE.PointLight(0x66ffb0,1.2,6);ll.position.set(0,-.4,0);D.add(ll);
+// background: glow, infinite grid floor, drifting dust
+function glowTex(c){var k=document.createElement('canvas');k.width=k.height=128;var x=k.getContext('2d'),g=x.createRadialGradient(64,64,0,64,64,64);g.addColorStop(0,c);g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(0,0,128,128);return new THREE.CanvasTexture(k)}
+function glow(c,sz,x,y,z){var m=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex(c),blending:THREE.AdditiveBlending,transparent:true,depthWrite:false}));m.scale.set(sz,sz,1);m.position.set(x,y,z);return m}
+G.add(glow('rgba(56,189,248,.55)',9,0,0,-2.5));G.add(glow('rgba(139,92,246,.45)',7,1.5,-.8,-3));
+S.fog=new THREE.Fog(0x0a0b10,10,34);
+var grid=new THREE.GridHelper(90,90,0x38bdf8,0x3b2a8f);grid.position.y=-3.8;grid.material.transparent=true;grid.material.opacity=.4;S.add(grid);
+var DN=700,dp=new Float32Array(DN*3);for(var i=0;i<DN;i++){dp[i*3]=(Math.random()-.5)*34;dp[i*3+1]=Math.random()*14-4;dp[i*3+2]=-10+Math.random()*16}
+var dg=new THREE.BufferGeometry();dg.setAttribute('position',new THREE.BufferAttribute(dp,3));
+S.add(new THREE.Points(dg,new THREE.PointsMaterial({size:.06,color:0x9fdcff,transparent:true,opacity:.6,depthWrite:false,blending:THREE.AdditiveBlending})));
+
+// stars, floating wireframes, orbit rings
+var SN=1100,sp=new Float32Array(SN*3),sc=new Float32Array(SN*3),pal=[[.6,.85,1],[.75,.65,1],[1,1,1]];
+for(var i=0;i<SN;i++){var rr=22+Math.random()*30,th=Math.random()*6.283,ph=Math.acos(2*Math.random()-1);sp[i*3]=rr*Math.sin(ph)*Math.cos(th);sp[i*3+1]=rr*Math.sin(ph)*Math.sin(th);sp[i*3+2]=-8-rr*Math.abs(Math.cos(ph));sc.set(pal[i%3],i*3)}
+var sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.BufferAttribute(sp,3));sg.setAttribute('color',new THREE.BufferAttribute(sc,3));
+var stars=new THREE.Points(sg,new THREE.PointsMaterial({size:.12,vertexColors:true,transparent:true,opacity:.85,fog:false,depthWrite:false,blending:THREE.AdditiveBlending}));S.add(stars);
+var shp=[];[[-9,4,-7,0],[10,-2,-9,1],[-12,-3,-12,2],[7,6,-12,0],[-4,7,-10,1],[13,3,-6,2]].forEach(function(a,i){
+ var g=a[3]==0?new THREE.IcosahedronGeometry(1.1,0):a[3]==1?new THREE.OctahedronGeometry(1,0):new THREE.TorusGeometry(.9,.18,8,24);
+ var m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:i%2?0x8b5cf6:0x38bdf8,wireframe:true,transparent:true,opacity:.28,fog:false}));
+ m.position.set(a[0],a[1],a[2]);m.userData.y=a[1];m.userData.p=i;S.add(m);shp.push(m)});
+var rings=[];[[3.6,.014,.35,0x38bdf8],[4.4,.01,-.5,0x8b5cf6]].forEach(function(a,i){
+ var r=new THREE.Mesh(new THREE.TorusGeometry(a[0],a[1],8,160),new THREE.MeshBasicMaterial({color:a[3],transparent:true,opacity:.45,fog:false}));
+ r.rotation.x=1.2+a[2];r.userData.s=(i?-1:1)*.0004;G.add(r);rings.push(r)});
+var mx=0,my=0,card=document.getElementById('card');
+addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;card.style.setProperty('--ry',(mx*8)+'deg');card.style.setProperty('--rx',(-my*8)+'deg')});
+document.querySelectorAll('.k').forEach(function(el){el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.setProperty('--ry',x*10+'deg');el.style.setProperty('--rx',-y*10+'deg')});el.addEventListener('pointerleave',function(){el.style.setProperty('--ry','0deg');el.style.setProperty('--rx','0deg')})});
+var tg=[].slice.call(document.querySelectorAll('.wrap h2,.wrap .sub,.wrap .k,.wrap .tl'));
+tg.forEach(function(e){if(!e.classList.contains('tl'))e.classList.add('rv')});
+document.querySelectorAll('.grid,.tl').forEach(function(p){[].slice.call(p.children).forEach(function(c,i){c.style.setProperty('--d',(i*.1)+'s')})});
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+tg.forEach(function(e){io.observe(e)});
+var sf=0;addEventListener('scroll',function(){var m=document.body.scrollHeight-innerHeight;sf=m>0?scrollY/m:0},{passive:true});
+function rs(){var w=innerWidth,h=innerHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();
+ var wide=w>800;G.position.set(wide?3.1:0,wide?0:2.5,0);G.scale.setScalar(wide?1:.62)}
+addEventListener('resize',rs);rs();
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function loop(t){
+ if(!rm){stars.rotation.y=t*.00002+sf*1.4;stars.rotation.x=sf*.4;stars.material.opacity=.7+Math.sin(t*.002)*.15;shp.forEach(function(m){m.rotation.x+=.003;m.rotation.y+=.004;m.position.y=m.userData.y+Math.sin(t*.001+m.userData.p)*.5});rings.forEach(function(r){r.rotation.z+=r.userData.s*16});grid.position.z=(t*.0009)%1;for(var i=0;i<DN;i++){dp[i*3+1]+=.004+(i%7)*.0007;if(dp[i*3+1]>10)dp[i*3+1]=-4}dg.attributes.position.needsUpdate=true;cam.position.z+=(9-cam.position.z)*.035;D.rotation.y=t*.0004;D.position.y=Math.sin(t*.0014)*.2;D.rotation.z=Math.sin(t*.0009)*.04;props.forEach(function(p){p.rotation.y+=p.userData.s*.9});ll.intensity=1.1+Math.sin(t*.004)*.4;
+  var wd=innerWidth>800;G.position.y+=((wd?Math.sin(sf*9)*.8:2.5)+Math.sin(t*.0012)*.15-G.position.y)*.05;G.position.x+=((wd?3.1*Math.cos(sf*9.4):0)-G.position.x)*.05;G.rotation.y+=(sf*6-G.rotation.y)*.05;G.scale.setScalar((wd?1-sf*.35:.62-sf*.2)*(1-Math.pow(1-Math.min(1,t/2200),3)))}
+ cam.position.x+=(mx*1.6-cam.position.x)*.05;cam.position.y+=(-my*1.1-cam.position.y)*.05;cam.lookAt(0,0,0);
+ R.render(S,cam);requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+})();
+</script><script>
+(function(){
+var de=document.documentElement,nv=document.querySelector('nav');
+addEventListener('pointermove',function(e){de.style.setProperty('--sx',e.clientX+'px');de.style.setProperty('--sy',e.clientY+'px')},{passive:true});
+function sc(){var m=document.body.scrollHeight-innerHeight;de.style.setProperty('--p',m>0?scrollY/m:0);nv.classList.toggle('s',scrollY>40)}
+addEventListener('scroll',sc,{passive:true});sc();
+document.querySelectorAll('.k').forEach(function(k){k.querySelectorAll('.tg i').forEach(function(i,n){i.style.setProperty('--n',n)})});
+var links=[].slice.call(document.querySelectorAll('.nl a'));
+var so=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id)})})},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('.wrap section').forEach(function(x){so.observe(x)});
+})();
+</script></body></html>
